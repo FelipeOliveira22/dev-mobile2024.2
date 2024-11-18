@@ -1,0 +1,105 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f9fa"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#ffffff"
+        android:elevation="4dp"
+        android:layout_margin="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp">
+
+        <!-- Foto de Perfil -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/foto_perfil"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Foto de perfil"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"
+                android:background="@drawable/circle_border" />
+
+        </FrameLayout>
+
+        <!-- Nome -->
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Felipe Oliveira"
+            android:textSize="24sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:textColor="#212529"
+            android:textStyle="bold" />
+
+        <!-- Descrição -->
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estudante na Universidade Federal do Ceará, no 6º período do curso de Engenharia de Software. Atuo como desenvolvedor full-stack em projetos de pesquisa e extensão, sempre me baseando nos princípios das metodologias ágeis."
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#495057"
+            android:lineSpacingExtra="4dp"
+            android:justificationMode="inter_word" />
+
+        <!-- Emprego Atual -->
+        <TextView
+            android:id="@+id/currentJobText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Emprego Atual: Buscando Estágio"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:textColor="#6c757d"
+            android:textStyle="italic"
+            android:justificationMode="inter_word" />
+
+        <!-- Divisor -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dee2e6"
+            android:layout_marginTop="20dp" />
+
+        <!-- Título Experiências -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Experiências"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="start"
+            android:textColor="#212529"
+            android:textStyle="bold" />
+
+        <!-- Layout para Experiências Dinâmicas -->
+        <LinearLayout
+            android:id="@+id/experienceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:divider="@android:color/darker_gray"
+            android:showDividers="middle">
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
