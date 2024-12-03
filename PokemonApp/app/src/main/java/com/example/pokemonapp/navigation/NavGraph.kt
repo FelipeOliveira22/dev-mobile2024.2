@@ -11,6 +11,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pokemonapp.ui.theme.screens.PokemonScreen
 import com.example.pokemonapp.models.getMockedPokemonList
 import com.example.pokemonapp.ui.theme.screens.HomeScreen
+
+
 @ExperimentalMaterial3Api
 @Composable
 fun NavGraph() {
