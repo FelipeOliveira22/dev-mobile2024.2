@@ -37,7 +37,6 @@ fun DrawerContent(navController: NavHostController, onSendNotification: () -> Un
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            // Cabeçalho do menu
             Text(
                 text = "Menu",
                 style = MaterialTheme.typography.titleLarge,
@@ -49,7 +48,6 @@ fun DrawerContent(navController: NavHostController, onSendNotification: () -> Un
                 modifier = Modifier.padding(vertical = 8.dp)
             )
 
-            // Itens do menu
             MenuItem(
                 text = "Perfil",
                 color = MaterialTheme.colorScheme.primary,
@@ -71,7 +69,6 @@ fun DrawerContent(navController: NavHostController, onSendNotification: () -> Un
 
             Spacer(modifier = Modifier.weight(1f)) // Espaço flexível para empurrar o rodapé para baixo
 
-            // Rodapé
             Text(
                 text = "Versão 1.0.0",
                 style = MaterialTheme.typography.bodySmall,

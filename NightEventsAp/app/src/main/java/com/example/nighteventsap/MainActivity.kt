@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             val drawerState = rememberDrawerState(DrawerValue.Closed)
             val scope = rememberCoroutineScope()
-            val isDarkTheme = remember { mutableStateOf(false) } // Controle do tema
+            val isDarkTheme = remember { mutableStateOf(false) }
 
             NightEventsAppTheme(darkTheme = isDarkTheme.value) {
                 ModalNavigationDrawer(
@@ -35,7 +35,6 @@ class MainActivity : ComponentActivity() {
                     gesturesEnabled = true,
                     drawerContent = {
                         DrawerContent(navController) {
-                            // Ações adicionais no DrawerContent
                         }
                     }
                 ) {
@@ -54,7 +53,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding(innerPadding)
                         ) {
                             composable("home") {
-                                HomeScreen(navController, this@MainActivity) // Passando o Context
+                                HomeScreen(navController, this@MainActivity)
                             }
                             composable("events") {
                                 SubscribedEventsScreen(navController)

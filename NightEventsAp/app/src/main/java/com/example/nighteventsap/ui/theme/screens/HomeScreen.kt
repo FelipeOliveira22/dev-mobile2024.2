@@ -83,7 +83,6 @@ fun HomeScreen(navController: NavHostController, context: Context) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Exibe todos os eventos
         LazyColumn {
             items(eventList) { event ->
                 Card(
@@ -129,7 +128,6 @@ fun HomeScreen(navController: NavHostController, context: Context) {
                         )
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        // Botões para ações
                         Column(
                             modifier = Modifier.fillMaxWidth(),
                             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -165,7 +163,6 @@ fun HomeScreen(navController: NavHostController, context: Context) {
     }
 }
 
-// Função para criar o canal de notificação
 private fun createNotificationChannel(context: Context) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         val name = "Inscrição de Eventos"
@@ -180,7 +177,6 @@ private fun createNotificationChannel(context: Context) {
     }
 }
 
-// Função para enviar notificações
 private fun sendNotification(context: Context, eventTitle: String) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
         ContextCompat.checkSelfPermission(

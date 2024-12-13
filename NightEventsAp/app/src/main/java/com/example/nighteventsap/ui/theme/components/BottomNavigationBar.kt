@@ -24,7 +24,7 @@ fun BottomNavigationBar(navController: NavHostController) {
             NavigationBarItem(
                 icon = { Icon(icon, contentDescription = label) },
                 label = { Text(label) },
-                selected = false, // Update selection logic here
+                selected = false,
                 onClick = { navController.navigate(route) }
             )
         }
