@@ -23,6 +23,12 @@ fun setAlarm(context: Context, hour: Int, minute: Int) {
         set(Calendar.SECOND, 0)
     }
 
+    // Verifica se o horário configurado é no passado
+    if (calendar.timeInMillis <= System.currentTimeMillis()) {
+        Toast.makeText(context, "Configuração inválida! Escolha um horário no futuro.", Toast.LENGTH_SHORT).show()
+        return
+    }
+
     val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     val intent = Intent(context, AlarmReceiver::class.java)
     val pendingIntent = PendingIntent.getBroadcast(
