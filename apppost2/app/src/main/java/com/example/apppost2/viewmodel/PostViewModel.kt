@@ -12,25 +12,26 @@ import com.example.apppost2.data.models.User
 import com.example.apppost2.data.models.UserCreateRequest
 import kotlinx.coroutines.launch
 
-class PostViewModel: ViewModel() {
+class PostViewModel : ViewModel() {
     var post: List<Post> by mutableStateOf(listOf())
     var users: List<User> by mutableStateOf(listOf())
     private val userId = 1
 
-    fun fetchUsers(){
+    fun fetchUsers() {
         viewModelScope.launch {
             try {
-
+                users = RetrofitInstance.api.getUsers() // Atualiza a lista de usuários
             } catch (e: Exception) {
-
+                e.printStackTrace()
             }
         }
     }
-    fun fetchPosts(){
+
+    fun fetchPosts() {
         viewModelScope.launch {
             try {
                 post = RetrofitInstance.api.getPosts(userId)
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
@@ -41,7 +42,7 @@ class PostViewModel: ViewModel() {
         email: String,
         onSucess: () -> Unit,
         onError: () -> Unit
-    ){
+    ) {
         viewModelScope.launch {
             try {
                 val newUser = UserCreateRequest(name, email)
@@ -60,21 +61,21 @@ class PostViewModel: ViewModel() {
         content: String,
         onSucess: () -> Unit,
         onError: () -> Unit
-    ){
+    ) {
         viewModelScope.launch {
-            try{
+            try {
                 val newPost = CreatePostRequest(title, content)
                 RetrofitInstance.api.createPost(userId, newPost)
                 fetchPosts()
                 onSucess()
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
                 onError()
             }
         }
     }
 
-    fun deletePost(postId: Int){
+    fun deletePost(postId: Int) {
         viewModelScope.launch {
             try {
                 RetrofitInstance.api.deletePost(postId)
@@ -88,8 +89,8 @@ class PostViewModel: ViewModel() {
     fun updatePost(
         postId: Int,
         title: String,
-        content: String,
-    ){
+        content: String
+    ) {
         viewModelScope.launch {
             try {
                 val updatedPost = CreatePostRequest(title, content)
@@ -100,5 +101,4 @@ class PostViewModel: ViewModel() {
             }
         }
     }
-
 }
